@@ -1,0 +1,31 @@
+           Start the Program
+                 |
+                 v
+           Select Random Movie
+                 |
+                 v
+       Initialize Masked Word + Attempts
+                 |
+                 v
+            Display Game State
+                 |
+                 v
+       -------------------------------
+          | Take Input (A–Z only?)      |
+       -------------------------------
+        | Yes                      | No
+        v                          v
+Reveal Letters                 Print Error
+        |                          |
+        |__________________________|
+                    |
+                    v
+        ---------------------------
+        | Is Guess in Secret Movie? |
+        ---------------------------
+                    | Yes
+                    v
+             Display Result
+                    |
+                    v
+             End of Program
