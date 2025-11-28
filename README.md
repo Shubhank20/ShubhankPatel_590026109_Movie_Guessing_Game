@@ -1,4 +1,4 @@
-🎬 Movie Guessing Game (C Project)
+Movie Guessing Game (C Project)
 
 Description
 
