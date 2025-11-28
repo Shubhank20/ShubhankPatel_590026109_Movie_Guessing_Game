@@ -1,0 +1,7 @@
+(Movie randomly selected: LAGAAN)
+User inputs:
+
+L
+A
+G
+N

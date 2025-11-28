@@ -1,0 +1,9 @@
+(Movie randomly selected: SULTAN)
+User inputs:
+
+S
+U
+L
+T
+A
+N

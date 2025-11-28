@@ -1,0 +1,7 @@
+(Movie randomly selected: DON)
+User inputs:
+
+A
+O
+D
+N

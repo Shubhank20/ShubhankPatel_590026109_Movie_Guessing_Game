@@ -1,0 +1,12 @@
+(Movie randomly selected: DRISHYAM)
+User inputs:
+
+A
+E
+I
+D
+R
+S
+H
+Y
+M

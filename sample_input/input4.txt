@@ -1,0 +1,8 @@
+(Movie randomly selected: BARFI)
+User inputs:
+
+B
+A
+R
+F
+I

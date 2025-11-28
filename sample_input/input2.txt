@@ -1,0 +1,9 @@
+(Movie randomly selected: PATHAN)
+User inputs:
+
+A
+E
+P
+T
+H
+N
