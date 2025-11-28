@@ -1,0 +1,31 @@
+Algorithm for Movie Guessing Game
+Start program.
+Load the list of movie names into an array.
+Generate a random number and select a movie from the list.
+Calculate movie length and create a masked version of the movie (replace all letters with _).
+Initialize game state:
+attempts = MAX_ATTEMPTS
+guessed_letters array = all false
+game_over = false
+Start game loop (repeat until win or loss):
+Display current game status:
+masked movie
+attempts left
+used letters
+Check if masked movie matches the original movie:
+If yes → display win message → exit loop
+Check if attempts = 0:
+If yes → display loss message and reveal movie → exit loop
+Ask the user to enter a letter (A–Z).
+Validate the input:
+Must be a single character
+Must be alphabetic
+Convert to uppercase
+Check if the letter was already guessed:
+If yes → display warning → go to next iteration
+Mark the letter as guessed in the guessed_letters array.
+Check if the guessed letter exists in the secret movie:
+If found → reveal the letter in all positions in masked_word
+If not found → decrease attempts by 1
+Repeat loop until win or lose.
+End program.
