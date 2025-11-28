@@ -10,7 +10,7 @@
 #define MAX_MOVIES    50
 
 // List of movies
-// List of 10 popular one-word Bollywood movies (all uppercase)
+// List of 50 popular one-word Bollywood movies (all uppercase)
 const char *movies[MAX_MOVIES] = {
     "GUNDAY",
     "KICK",
