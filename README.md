@@ -36,7 +36,9 @@ movie-guessing-game/
 │   ├── Output_2.png
 │   ├── Output_3.png
 │   ├── Output_4.png
-│   └── Output_5.png
+|   ├── Output_5.png
+│   ├── Output_6.png
+│   └── Output_7.png
 |
 ├── sample_outputs/
 │   ├── input1.txt
