@@ -14,8 +14,7 @@
 10. Win/Lose result message
 
 # Repository Structure
-
-'''
+```
 movie-guessing-game/
 │
 ├── src/
@@ -49,9 +48,7 @@ movie-guessing-game/
 |   ├── input6.txt
 |   └── input7.txt
 └── README.md
-
-'''
-
+```
 # Getting Started
 
 1. A C compiler (GCC recommended)
