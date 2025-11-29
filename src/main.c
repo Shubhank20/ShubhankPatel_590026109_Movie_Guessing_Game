@@ -1,17 +1,19 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
-#include <ctype.h>
-#include <stdbool.h>
+#include <stdio.h> // Standard Input/Output Header
+#include <stdlib.h> // Standard Library Header ( rand , srand )
+#include <string.h> // String Header (strlen, strcmp)
+#include <time.h> // Time Header (time for seeding rand)
+#include <ctype.h> // Character Type Header (toupper)
+#include <stdbool.h> // Boolean Header (true, false)
 
-#define MAX_ATTEMPTS   7
+// #define - These values do not change during program execution
+#define MAX_ATTEMPTS   7 
 #define MAX_MOVIE_LEN 50
 #define MAX_MOVIES    50
 
-// List of movies
+
+// const char * - pointer to constant character data
 // List of 50 popular one-word Bollywood movies (all uppercase)
-const char *movies[MAX_MOVIES] = {
+const char *movies[MAX_MOVIES] = { 
     "GUNDAY",
     "KICK",
     "SHOLAY",
@@ -63,7 +65,7 @@ const char *movies[MAX_MOVIES] = {
     "SWADES",
     "HUMGAMA"
 };
-
+// const char *masked_word - A string representing the masked movie.Example: "__G_A_"
 void print_status(const char *masked_word,int attempts_left,
     const bool guessed_letters[26]) {
 
@@ -71,17 +73,16 @@ void print_status(const char *masked_word,int attempts_left,
     printf("          Movie Guessing Game        \n");
     printf("=====================================\n");
 
-    // Show the movie with underscores
     printf("Current Movie: ");
-    for (int i = 0; masked_word[i] != '\0'; i++) {
+    for (int i = 0; masked_word[i] != '\0'; i++) { // * Stops when it reaches the end of the string ('\0')
         printf("%c ", masked_word[i]);
     }
     printf("\n");
 
-    // Show attempts
+    // Show attempts lefts 
     printf("Attempts left: %d / %d\n", attempts_left, MAX_ATTEMPTS);
 
-    // Show used letters
+    // Show used letters 
     printf("Used letters: ");
     int used_any = 0;
     for (int i = 0; i < 26; i++) {
@@ -97,17 +98,16 @@ void print_status(const char *masked_word,int attempts_left,
 }
 
 int main(void) {
-    // 1. Choose a random movie
-    srand((unsigned int)time(NULL));        // seed random
-    int random_index = rand() % MAX_MOVIES; // number from 0 to MAX_MOVIES-1
-    const char *secret_movie = movies[random_index];
+    srand((unsigned int)time(NULL)); // srand - random no. generator 
+    int random_index = rand() % MAX_MOVIES;  // rand() gives a large random number.
+                                             //number from 0 to MAX_MOVIES-1
+    const char *secret_movie = movies[random_index]; // randomly selected movie
 
-    int movie_len = (int)strlen(secret_movie);
+    int movie_len = (int)strlen(secret_movie);// length of the selected movie
 
-    // 2. Prepare game state
-    char masked_word[MAX_MOVIE_LEN + 1];
-    bool guessed_letters[26] = { false };
-    int attempts_left = MAX_ATTEMPTS;
+    char masked_word[MAX_MOVIE_LEN + 1];// +1 for null terminator
+    bool guessed_letters[26] = { false }; 
+    int attempts_left = MAX_ATTEMPTS; 
     bool game_over = false;
 
     // Build the masked word: letters -> '_', spaces/hyphens stay
@@ -121,11 +121,10 @@ int main(void) {
     masked_word[movie_len] = '\0';
 
     // 3. Main loop
-    while (!game_over) {
+    while (!game_over){ // Loop until game_over is true
         char guess;
 
-        // Show current status
-        print_status(masked_word, attempts_left, guessed_letters);
+        print_status(masked_word, attempts_left, guessed_letters); // Show current game status
 
         // Check win
         if (strcmp(masked_word, secret_movie) == 0) {
@@ -143,20 +142,18 @@ int main(void) {
 
         // 4. Take input
         printf("\nEnter your guess (A-Z): ");
-        if (scanf(" %c", &guess) != 1) {
-            // input failed, clear buffer and retry
+        if (scanf(" %c", &guess) != 1) { // input failed, clear buffer and retry
             int ch;
-            while ((ch = getchar()) != '\n' && ch != EOF) { }
+            while ((ch = getchar()) != '\n' && ch != EOF) { } // clear input buffer
             printf("Invalid input, please enter a letter.\n");
-            continue;
+            continue;// go back to start of while loop
         }
 
         // clear extra characters on the same line
         int ch;
         while ((ch = getchar()) != '\n' && ch != EOF) { }
 
-        // convert to uppercase
-        guess = (char)toupper((unsigned char)guess);
+        guess = (char)toupper((unsigned char)guess);// convert to uppercase
 
         // validate A-Z
         if (guess < 'A' || guess > 'Z') {
@@ -164,7 +161,7 @@ int main(void) {
             continue;
         }
 
-        int index = guess - 'A';
+        int index = guess - 'A'; 
 
         // check if already guessed
         if (guessed_letters[index]) {
@@ -172,11 +169,12 @@ int main(void) {
             continue;
         }
 
-        // mark as guessed
-        guessed_letters[index] = true;
+        guessed_letters[index] = true; // mark this letter as guessed
 
         // 5. Check if guess is in the movie
-        bool correct = false;
+        bool correct = false; 
+        // If found → reveal the letter
+        // If not → reduce attempts
         for (int i = 0; i < movie_len; i++) {
             if (secret_movie[i] == guess) {
                 masked_word[i] = guess;
@@ -184,9 +182,9 @@ int main(void) {
             }
         }
 
-        if (correct) {
+        if (correct) { // guess was correct
             printf("Good job! '%c' is in the movie.\n", guess);
-        } else {
+        } else { // guess was incorrect
             attempts_left--;
             printf("Sorry, '%c' is not in the movie.\n", guess);
         }
