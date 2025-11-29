@@ -1,6 +1,6 @@
 # Movie Guessing Game (C Project)
 
-#Description
+# Description
 
 1.This project is a terminal-based guessing game written in C.
 2.Features include:
@@ -13,7 +13,8 @@
 9.Current masked movie state
 10.Win/Lose result message
 
-#Repository Structure
+# Repository Structure
+
 '''
 movie-guessing-game/
 │
@@ -46,7 +47,9 @@ movie-guessing-game/
 |   ├── input6.txt
 |   └── input7.txt
 └── README.md
+
 '''
+
 # Getting Started
 
 1. A C compiler (GCC recommended)
