@@ -1,4 +1,5 @@
-Algorithm for Movie Guessing Game
+# Algorithm for Movie Guessing Game
+
 Start program.
 Load the list of movie names into an array.
 Generate a random number and select a movie from the list.
