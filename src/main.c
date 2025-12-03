@@ -97,7 +97,7 @@ void print_status(const char *masked_word,int attempts_left,
     printf("\n");
 }
 
-int main(void) {
+int main() {
     srand((unsigned int)time(NULL)); // srand - random no. generator 
     int random_index = rand() % MAX_MOVIES;  // rand() gives a large random number.
                                              //number from 0 to MAX_MOVIES-1
