@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 #if defined(_WIN32)
-    #include <conio.h>   // for _getch()
+    #include <conio.h>
 #else
     #include <termios.h>
     #include <unistd.h>
@@ -61,14 +61,14 @@ int main(void) {
     int pos = 0;
     char ch;
 
-    // Hidden input loop
-    while (pos < MAX_MOVIE_LEN - 1) {
-        ch = getch();  // Character not shown on screen
 
-        if (ch == '\n' || ch == '\r')   // ENTER pressed
+    while (pos < MAX_MOVIE_LEN - 1) {
+        ch = getch(); 
+
+        if (ch == '\n' || ch == '\r') 
             break;
 
-        if (ch == 127 || ch == 8) {     // Backspace support
+        if (ch == 127 || ch == 8) {  
             if (pos > 0) pos--;
             continue;
         }
@@ -77,7 +77,7 @@ int main(void) {
     }
     secret_movie[pos] = '\0';
 
-    // Convert to uppercase
+
     for (int i = 0; secret_movie[i]; i++) {
         secret_movie[i] = toupper(secret_movie[i]);
     }
@@ -89,7 +89,7 @@ int main(void) {
     bool guessed_letters[26] = { false };
     int attempts_left = MAX_ATTEMPTS;
 
-    // Build masked word
+
     for (int i = 0; i < movie_len; i++) {
         if (secret_movie[i] == ' ' || secret_movie[i] == '-')
             masked_word[i] = secret_movie[i];
